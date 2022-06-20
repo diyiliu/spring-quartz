@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'cn.diyiliu'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    springVersion = '5.3.21'
+    lombokVersion = '1.18.22'
+    logbackVersion = '1.2.7'
+}
+
+dependencies {
+    implementation "org.springframework:spring-context-support:$springVersion"
+    implementation "org.springframework:spring-tx:$springVersion"
+    implementation 'org.quartz-scheduler:quartz:2.3.2'
+
+    compileOnly "org.projectlombok:lombok:$lombokVersion"
+    annotationProcessor "org.projectlombok:lombok:$lombokVersion"
+    implementation "ch.qos.logback:logback-classic:$logbackVersion"
+}
+
+test {
+    useJUnitPlatform()
+}
